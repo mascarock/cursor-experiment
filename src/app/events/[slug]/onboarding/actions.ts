@@ -2,6 +2,7 @@
 
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { toJsonArray } from "@/lib/arrays";
 
 interface ProfileData {
   aboutMe: string;
@@ -24,9 +25,9 @@ export async function saveProfile(eventId: string, data: ProfileData) {
       aboutMe: data.aboutMe,
       currentRole: data.currentRole,
       company: data.company,
-      skills: data.skills,
-      interests: data.interests,
-      lookingFor: data.lookingFor,
+      skills: toJsonArray(data.skills),
+      interests: toJsonArray(data.interests),
+      lookingFor: toJsonArray(data.lookingFor),
       onboardingComplete: true,
     },
     create: {
@@ -35,9 +36,9 @@ export async function saveProfile(eventId: string, data: ProfileData) {
       aboutMe: data.aboutMe,
       currentRole: data.currentRole,
       company: data.company,
-      skills: data.skills,
-      interests: data.interests,
-      lookingFor: data.lookingFor,
+      skills: toJsonArray(data.skills),
+      interests: toJsonArray(data.interests),
+      lookingFor: toJsonArray(data.lookingFor),
       onboardingComplete: true,
     },
   });

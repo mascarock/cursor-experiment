@@ -2,6 +2,7 @@ import { db } from "@/lib/db";
 import { auth } from "@/lib/auth";
 import { notFound } from "next/navigation";
 import { GlassHeader } from "@/components/glass-header";
+import { parseJsonArray } from "@/lib/arrays";
 import Link from "next/link";
 
 export default async function AttendeeProfilePage({
@@ -21,6 +22,10 @@ export default async function AttendeeProfilePage({
     where: { userId_eventId: { userId, eventId: event.id } },
   });
   if (!profile || !profile.isVisible) notFound();
+
+  const skills = parseJsonArray(profile.skills);
+  const interests = parseJsonArray(profile.interests);
+  const lookingFor = parseJsonArray(profile.lookingFor);
 
   const experiences = await db.experience.findMany({
     where: { userId },
@@ -166,13 +171,13 @@ export default async function AttendeeProfilePage({
           )}
 
           {/* Skills */}
-          {profile.skills.length > 0 && (
+          {skills.length > 0 && (
             <section>
               <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
                 Skills
               </h2>
               <div className="flex flex-wrap gap-2">
-                {profile.skills.map((skill) => (
+                {skills.map((skill) => (
                   <span
                     key={skill}
                     className="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-semibold"
@@ -185,13 +190,13 @@ export default async function AttendeeProfilePage({
           )}
 
           {/* Interests */}
-          {profile.interests.length > 0 && (
+          {interests.length > 0 && (
             <section>
               <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
                 Interests
               </h2>
               <div className="flex flex-wrap gap-2">
-                {profile.interests.map((interest) => (
+                {interests.map((interest) => (
                   <span
                     key={interest}
                     className="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium"
@@ -204,13 +209,13 @@ export default async function AttendeeProfilePage({
           )}
 
           {/* Looking For */}
-          {profile.lookingFor.length > 0 && (
+          {lookingFor.length > 0 && (
             <section>
               <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
                 Looking For
               </h2>
               <div className="flex flex-wrap gap-2">
-                {profile.lookingFor.map((item) => (
+                {lookingFor.map((item) => (
                   <span
                     key={item}
                     className="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-semibold"

@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { auth } from "@/lib/auth";
 import { notFound, redirect } from "next/navigation";
+import { parseJsonArray } from "@/lib/arrays";
 import Link from "next/link";
 
 export default async function ProfilePage({
@@ -103,11 +104,11 @@ export default async function ProfilePage({
           </section>
         )}
 
-        {profile && profile.skills.length > 0 && (
+        {profile && parseJsonArray(profile.skills).length > 0 && (
           <section>
             <h2 className="text-lg font-bold mb-3">Skills</h2>
             <div className="flex flex-wrap gap-2">
-              {profile.skills.map((skill) => (
+              {parseJsonArray(profile.skills).map((skill) => (
                 <span
                   key={skill}
                   className="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-semibold"
@@ -119,11 +120,11 @@ export default async function ProfilePage({
           </section>
         )}
 
-        {profile && profile.interests.length > 0 && (
+        {profile && parseJsonArray(profile.interests).length > 0 && (
           <section>
             <h2 className="text-lg font-bold mb-3">Interests</h2>
             <div className="flex flex-wrap gap-2">
-              {profile.interests.map((interest) => (
+              {parseJsonArray(profile.interests).map((interest) => (
                 <span
                   key={interest}
                   className="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium"

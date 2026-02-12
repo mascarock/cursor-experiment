@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { parseJsonArray } from "@/lib/arrays";
 
 interface ProfileWithUser {
   id: string;
@@ -19,6 +20,29 @@ interface ProfileWithUser {
     image: string | null;
     linkedinUrl: string | null;
     websiteUrl: string | null;
+  };
+}
+
+/** Convert a raw Prisma profile (JSON string fields) to ProfileWithUser with parsed arrays */
+function toProfileWithUser(raw: {
+  id: string;
+  userId: string;
+  eventId: string;
+  aboutMe: string | null;
+  aboutMeAiExpanded: string | null;
+  currentRole: string | null;
+  company: string | null;
+  skills: string;
+  interests: string;
+  lookingFor: string;
+  isVisible: boolean;
+  user: { id: string; name: string | null; email: string; image: string | null; linkedinUrl: string | null; websiteUrl: string | null };
+}): ProfileWithUser {
+  return {
+    ...raw,
+    skills: parseJsonArray(raw.skills),
+    interests: parseJsonArray(raw.interests),
+    lookingFor: parseJsonArray(raw.lookingFor),
   };
 }
 
@@ -157,6 +181,7 @@ export async function getRecommendations(
   });
 
   if (!myProfile) return [];
+  const myParsed = toProfileWithUser(myProfile);
 
   // Get all other visible profiles for this event
   const otherProfiles = await db.profile.findMany({
@@ -191,13 +216,14 @@ export async function getRecommendations(
   }
 
   // Calculate scores
-  let results: RecommendationResult[] = otherProfiles.map((profile) => {
+  let results: RecommendationResult[] = otherProfiles.map((rawProfile) => {
+    const profile = toProfileWithUser(rawProfile);
     const { score, matchType, explanation, icon, sharedTags } = computeMatchScore(
-      myProfile as ProfileWithUser,
-      profile as ProfileWithUser
+      myParsed,
+      profile
     );
     return {
-      profile: profile as ProfileWithUser,
+      profile,
       matchScore: score,
       matchType,
       matchExplanation: explanation,

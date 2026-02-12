@@ -1,6 +1,7 @@
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { notFound, redirect } from "next/navigation";
+import { parseJsonArray } from "@/lib/arrays";
 import { OnboardingWizard } from "./onboarding-wizard";
 
 export default async function OnboardingPage({
@@ -52,9 +53,9 @@ export default async function OnboardingPage({
               aboutMe: profile.aboutMe || "",
               currentRole: profile.currentRole || "",
               company: profile.company || "",
-              skills: profile.skills,
-              interests: profile.interests,
-              lookingFor: profile.lookingFor,
+              skills: parseJsonArray(profile.skills),
+              interests: parseJsonArray(profile.interests),
+              lookingFor: parseJsonArray(profile.lookingFor),
             }
           : undefined
       }
