@@ -4,6 +4,8 @@ import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { joinEvent } from "./actions";
 
+export const dynamic = "force-dynamic";
+
 export default async function EventWelcomePage({
   params,
 }: {
