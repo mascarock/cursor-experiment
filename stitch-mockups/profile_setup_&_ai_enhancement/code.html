@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile Setup - Networking App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#1A2633", // Slightly lighter for inputs/cards
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark mode feels */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d3b4e; 
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #137fec; 
+        }
+        
+        .ai-gradient-text {
+            background: linear-gradient(90deg, #137fec, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ai-border-glow {
+            position: relative;
+        }
+        .ai-border-glow::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            z-index: -1;
+            border-radius: inherit;
+            background: linear-gradient(45deg, rgba(19, 127, 236, 0.5), transparent, rgba(19, 127, 236, 0.2));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased min-h-screen flex flex-col items-center justify-center py-6 sm:py-12">
+<!-- Mobile Container -->
+<div class="w-full max-w-md bg-background-light dark:bg-background-dark min-h-screen sm:min-h-0 sm:h-[850px] sm:rounded-3xl sm:shadow-2xl sm:border sm:border-slate-200 dark:sm:border-slate-800 relative flex flex-col overflow-hidden">
+<!-- Status Bar Area (Visual only for phone feel) -->
+<div class="h-12 w-full flex justify-between items-center px-6 pt-2 select-none">
+<span class="text-xs font-semibold dark:text-slate-300">9:41</span>
+<div class="flex gap-1.5">
+<div class="w-4 h-2.5 bg-slate-800 dark:bg-slate-300 rounded-[1px]"></div>
+<div class="w-2.5 h-2.5 bg-slate-800 dark:bg-slate-300 rounded-full"></div>
+</div>
+</div>
+<!-- Header with Progress -->
+<header class="px-6 py-4 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<button class="p-2 -ml-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400">
+<span class="material-icons-round">arrow_back</span>
+</button>
+<span class="text-sm font-semibold text-slate-500 dark:text-slate-400">Step 2 of 4</span>
+<button class="text-sm font-semibold text-primary hover:text-blue-400">Skip</button>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full w-1/2 bg-primary rounded-full"></div>
+</div>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex-1 overflow-y-auto px-6 pb-24">
+<!-- Hero Text -->
+<div class="mb-8 mt-2">
+<h1 class="text-2xl font-bold mb-2">Build your Profile</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                    Help others find you by sharing your role, experience, and interests.
+                </p>
+</div>
+<!-- LinkedIn Import -->
+<button class="w-full mb-8 flex items-center justify-center gap-3 py-3 px-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors group">
+<img alt="LinkedIn Logo" class="w-5 h-5 filter grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFhILkKzBnWAplHF9B1aSjSzHQcBiJWKPPwResJ1_RMgowXns9n2kqSn_qqDJO63d2pSwImOILibGWfztwbLhbmyBLgOlLhpoVrX_dquzutMtwVBe36tnOIx3CVFb5lfROKU1J_FGbUCKX6TJ-gSdYn3_RWYDa_wbL_-urgvO7x1C7p81YXLOp-o3wgFOO8WFvZZFIaBLwZv__IHUNM_zTGYPm8FGh51DQ8XSGHP5PlEM7L8YHsWAZsq1ZjoE1D5zCGtBIoeyfnUg"/>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Autofill with LinkedIn</span>
+</button>
+<!-- Form -->
+<div class="space-y-6">
+<!-- Bio Section -->
+<div class="relative group">
+<div class="flex justify-between items-end mb-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-200">About Me</label>
+<span class="text-xs text-slate-400 dark:text-slate-500">120/500</span>
+</div>
+<div class="relative">
+<textarea class="w-full bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm min-h-[140px] focus:ring-2 focus:ring-primary focus:border-transparent outline-none resize-none text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 leading-relaxed" placeholder="I'm a Product Designer with 5 years of experience in SaaS...">I'm a Product Designer passionate about creating user-centric experiences. Currently building SaaS tools for the future of work.</textarea>
+<!-- AI Button Inside -->
+<button class="absolute bottom-3 right-3 flex items-center gap-1.5 bg-primary/10 hover:bg-primary/20 text-primary px-3 py-1.5 rounded-lg transition-colors backdrop-blur-sm">
+<span class="material-icons-round text-sm animate-pulse">auto_awesome</span>
+<span class="text-xs font-semibold">Enhance with AI</span>
+</button>
+</div>
+<p class="mt-2 text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1">
+<span class="material-icons-round text-[14px]">info</span>
+                        AI will expand your bio to sound more professional.
+                    </p>
+</div>
+<!-- Interests/Tags Section -->
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-3">Interests &amp; Skills</label>
+<!-- Input Area -->
+<div class="w-full bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl p-3 focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent transition-all">
+<div class="flex flex-wrap gap-2 mb-2">
+<!-- Tag 1 -->
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-primary/20 text-primary text-xs font-semibold">
+                                Product Design
+                                <button class="hover:text-white transition-colors"><span class="material-icons-round text-[14px]">close</span></button>
+</span>
+<!-- Tag 2 -->
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-primary/20 text-primary text-xs font-semibold">
+                                SaaS
+                                <button class="hover:text-white transition-colors"><span class="material-icons-round text-[14px]">close</span></button>
+</span>
+<!-- Tag 3 -->
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-primary/20 text-primary text-xs font-semibold">
+                                AI
+                                <button class="hover:text-white transition-colors"><span class="material-icons-round text-[14px]">close</span></button>
+</span>
+</div>
+<input class="w-full bg-transparent border-none p-0 text-sm text-slate-700 dark:text-white placeholder-slate-400 focus:ring-0" placeholder="Add more (e.g. Fintech, React)" type="text"/>
+</div>
+<!-- Suggested Tags -->
+<div class="mt-3 overflow-x-auto no-scrollbar">
+<div class="flex gap-2">
+<button class="whitespace-nowrap px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                + Leadership
+                            </button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                + Marketing
+                            </button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                + Startup
+                            </button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                + Coding
+                            </button>
+</div>
+</div>
+</div>
+<!-- Job Title Input (Simple) -->
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Current Role</label>
+<input class="w-full bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-slate-700 dark:text-slate-200" type="text" value="Product Designer"/>
+</div>
+</div>
+</main>
+<!-- Sticky Footer -->
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent pt-12">
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/25 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                Continue
+                <span class="material-icons-round text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

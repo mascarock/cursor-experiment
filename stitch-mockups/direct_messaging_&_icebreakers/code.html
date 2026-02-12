@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Direct Messaging &amp; Icebreakers</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 flex flex-col h-screen overflow-hidden">
+<!-- Header -->
+<header class="flex-none px-4 py-3 bg-white dark:bg-slate-900/50 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<button class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-icons">arrow_back_ios_new</span>
+</button>
+<div class="relative">
+<img alt="Profile picture of a professional man smiling" class="w-10 h-10 rounded-full object-cover border-2 border-white dark:border-slate-800" data-alt="Professional headshot of David Chen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBK6d_MIWnYKrqYeSHVUrI7cqCUvbNhxmjq2y-737l112KJ2Qf4M5QR92ZuuHYWC6L2r-_0WULOg6PVwAkYRaFqU-v7HlSYO3MJFR0whzLFBF-5TlIpytJj_fL-PWnvVPAnS7eieXndkPriiBhl15kceAlxV8Gn1ZyCmKiSqBzKXNHmwoMgpyERe6EFUahW8n_4xio6ZilWO4TPxtxKS-fNE-p7iOAI9m5DfrAbAaC5bnYo81HIbdjVtuE0UPMpfr_aF67UN_9EFM"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full"></div>
+</div>
+<div>
+<h1 class="text-base font-bold leading-tight">David Chen</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400">Senior DevOps Engineer</p>
+</div>
+</div>
+<button class="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-icons">more_vert</span>
+</button>
+</header>
+<!-- Chat Area -->
+<main class="flex-1 overflow-y-auto p-4 space-y-6 scroll-smooth bg-background-light dark:bg-background-dark">
+<!-- Date Divider -->
+<div class="flex justify-center">
+<span class="bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs px-3 py-1 rounded-full">Today, Oct 24</span>
+</div>
+<!-- Incoming Message Group -->
+<div class="flex gap-3 max-w-[85%]">
+<img alt="Small avatar of sender" class="w-8 h-8 rounded-full object-cover self-end mb-5 hidden sm:block" data-alt="Small avatar of David Chen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqmXfcMOwHmPBtGM8fHKtOKUI-geZ8Xzh1ALw_8RcxwgPABqq38RX9a8X44g7iq_XuGPqgPVfuRbzXmUw_6edYaC9nfmX6Gmxt2HecWs4_cKNzmWLvZB-GZR0JB0l_sNsiOD7XrhhCTXFgMnsd7LD8eWo8VJ5tSvDFsCWwEUFbRPjveiNoq0XJ58EjPWjjjg6t1y364p5UpiuXZnhSI3JRmE4MFkRCUnMkc_iB2v7_pzyPl7wBZz1DdOiatAgs7BVLOjSrpOHzYP8"/>
+<div class="flex flex-col gap-1">
+<div class="bg-white dark:bg-slate-800 px-4 py-3 rounded-2xl rounded-tl-none shadow-sm dark:shadow-none border border-slate-100 dark:border-slate-700/50">
+<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                        Hey! I saw you checked into the TechSummit. Are you planning to attend the cloud infrastructure keynote at 2 PM?
+                    </p>
+</div>
+<span class="text-[10px] text-slate-400 ml-1">1:45 PM</span>
+</div>
+</div>
+<!-- Outgoing Message Group -->
+<div class="flex flex-col items-end gap-1 ml-auto max-w-[85%]">
+<div class="bg-primary px-4 py-3 rounded-2xl rounded-tr-none shadow-md shadow-primary/20">
+<p class="text-sm leading-relaxed text-white">
+                    Yes, absolutely! I'm actually heading to the main hall right now to grab a seat.
+                </p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[10px] text-slate-400">1:46 PM</span>
+<span class="material-icons text-[12px] text-primary">done_all</span>
+</div>
+</div>
+<!-- Incoming Message Group (Icebreaker Response Context) -->
+<div class="flex gap-3 max-w-[85%]">
+<img alt="Small avatar of sender" class="w-8 h-8 rounded-full object-cover self-end mb-5 hidden sm:block" data-alt="Small avatar of David Chen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0uFMJ7j8T7eGc7Igt3L1JKHo7-iv4zvxWGPgAjs_ZD_Lcp-HpHJtXPj1MzGbikMu1_cxO0N0t8HbmY7hFkGnFmV1OIBhNmZhCXQ0iFKOKpl517_H_mh9UE48R3ZhXkjJW-L2oVLbz6bUN_vgd2iPOIUoeE3VgrNPnwXa_9UPkNTnV3Zb1-hCy0gch7YWcIHqfb7A4b7cgU1mAbdv5IKMJ4OLAUAD_uwMVW7eogq2PtRrgNSq6LwXLt2VuXJRxRnWGsqR5SKX9_LM"/>
+<div class="flex flex-col gap-1">
+<div class="bg-white dark:bg-slate-800 px-4 py-3 rounded-2xl rounded-tl-none shadow-sm dark:shadow-none border border-slate-100 dark:border-slate-700/50">
+<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                        Awesome. I'm near the front left. Let's meet up after? I'd love to pick your brain about that Kubernetes migration you mentioned on your profile.
+                    </p>
+</div>
+<span class="text-[10px] text-slate-400 ml-1">1:48 PM</span>
+</div>
+</div>
+<!-- Placeholder for scroll bottom -->
+<div class="h-2"></div>
+</main>
+<!-- Footer Area: Icebreakers & Input -->
+<footer class="flex-none bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pb-safe">
+<!-- Icebreakers Carousel -->
+<div class="pt-3 pb-2 pl-4 overflow-x-auto no-scrollbar">
+<div class="flex gap-2 pr-4 w-max">
+<p class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider self-center mr-1">Icebreakers</p>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 text-primary border border-primary/20 rounded-full transition-all group whitespace-nowrap">
+<span class="text-sm group-hover:scale-110 transition-transform">👋</span>
+<span class="text-xs font-medium">Enjoyed your talk!</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-full transition-all whitespace-nowrap">
+<span class="text-sm">☕</span>
+<span class="text-xs font-medium">Free for coffee?</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-full transition-all whitespace-nowrap">
+<span class="text-sm">🤝</span>
+<span class="text-xs font-medium">Let's connect on LinkedIn</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-full transition-all whitespace-nowrap">
+<span class="text-sm">🍕</span>
+<span class="text-xs font-medium">Lunch plans?</span>
+</button>
+</div>
+</div>
+<!-- Input Field -->
+<div class="px-4 pb-4 pt-2 flex items-end gap-2">
+<button class="p-2 text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary transition-colors flex-none">
+<span class="material-icons text-2xl">add_circle_outline</span>
+</button>
+<div class="flex-1 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center px-4 py-2 border border-transparent focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/10 transition-all">
+<textarea class="w-full bg-transparent border-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:ring-0 resize-none py-2 max-h-24" placeholder="Type a message..." rows="1" style="min-height: 2.5rem;"></textarea>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 ml-2">
+<span class="material-icons text-xl">sentiment_satisfied_alt</span>
+</button>
+</div>
+<button class="p-2.5 bg-primary text-white rounded-full shadow-lg shadow-primary/25 hover:bg-blue-600 transition-colors flex-none flex items-center justify-center">
+<span class="material-icons text-xl translate-x-0.5">send</span>
+</button>
+</div>
+</footer>
+<style>
+        /* Custom Scrollbar Hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Safe area spacing for iOS home indicator */
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 16px);
+        }
+    </style>
+</body></html>

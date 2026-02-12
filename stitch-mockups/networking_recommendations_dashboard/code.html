@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Networking Recommendations Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-white min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white overflow-x-hidden pb-20">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="px-5 py-4 w-full max-w-md mx-auto">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h1 class="text-xl font-bold tracking-tight">TechSummit 2024</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider">San Francisco, CA</p>
+</div>
+<div class="h-10 w-10 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden border border-slate-300 dark:border-slate-700">
+<img alt="User profile" class="h-full w-full object-cover" data-alt="Small user profile avatar showing a woman's face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbsPEo10pmiZ_xd4kR4DZj8L_sCJyZlp0mCZtRg6EA0n80Yu2ezw1w67ObRRARw88Uaca1RWiH0JdR_Z_77CBqFFvUEQBY9fEZW7QnFhVDbdWqU4z1XyOq3QupVcu_kn4a4Ap8IJ_0Ih-m9xXxG_sLaR2htLmiycBiKkPyrV5xVOGJqGzCT_Ort2qxaYCcFkRkxh8aP9NFVJ3aQRiMMPgDoTCEpigMtqPL2f_WjL_f_Ro_zfo61JQmke17PPvxc9iy9ID8q_EJwZI"/>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="relative flex-1">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-icons text-[20px]">search</span>
+</span>
+<input class="w-full bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg py-2.5 pl-10 pr-4 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Search people, roles..." type="text"/>
+</div>
+<button class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg px-3 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons text-slate-500 dark:text-slate-300">tune</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-md mx-auto px-5 pt-6 space-y-8">
+<!-- Quick Filters -->
+<section>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+<button class="flex-none bg-primary text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-lg shadow-primary/25">All Matches</button>
+<button class="flex-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Developers</button>
+<button class="flex-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Designers</button>
+<button class="flex-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Investors</button>
+</div>
+</section>
+<!-- Recommended Section -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-lg font-bold">Recommended for You</h2>
+<a class="text-xs font-semibold text-primary hover:text-primary/80" href="#">View All</a>
+</div>
+<div class="space-y-5">
+<!-- Card 1 -->
+<article class="group bg-white dark:bg-[#15202b] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md dark:hover:border-slate-700 transition-all duration-300 overflow-hidden relative">
+<!-- Match Badge -->
+<div class="absolute top-0 right-0 bg-primary/10 dark:bg-primary/20 text-primary px-3 py-1 rounded-bl-xl border-l border-b border-primary/10 backdrop-blur-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-icons text-[14px]">bolt</span>
+<span class="text-[10px] font-bold uppercase tracking-wide">98% Match</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex items-start gap-4">
+<div class="relative flex-none">
+<div class="w-16 h-16 rounded-xl overflow-hidden ring-2 ring-slate-100 dark:ring-slate-700">
+<img alt="Portrait of a smiling man with glasses" class="w-full h-full object-cover" data-alt="Close up portrait of a professional man smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8fTDiUBEG1vBqkeJFrFgw6mJPgGMeaWv7v-P_PYRI38JVYDD2so--ibi75I5-n_xeOgeGGP-2WMRgzDNiRefYOv0mfYMQoZOQzhp1mjqPPQ_tm_SwYtO5JF66a8Wz5rok163gm1wzzKW6i6OHFfqhpjAYbvjCk7eK98sv70fCaQkX4VUiZW6hA2egSAZi_f8neFbyioAOR00GSrjDsZ9Rx7XGNpcILCiDEdOt7XqRURjAvxYbGIdCzHjVWGM6FrhtoWOS8f2VrU4"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-white dark:border-[#15202b]" title="Online Now"></div>
+</div>
+<div class="flex-1 min-w-0 pt-1">
+<h3 class="text-lg font-bold truncate leading-tight">David Chen</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">Senior Frontend Eng at <span class="font-semibold text-slate-700 dark:text-slate-300">Stripe</span></p>
+<!-- Why this match? -->
+<div class="mt-3 inline-flex items-center gap-2 bg-slate-50 dark:bg-slate-800/60 px-2.5 py-1.5 rounded-lg border border-slate-100 dark:border-slate-700/50 w-full">
+<span class="material-icons text-primary text-[16px]">auto_awesome</span>
+<p class="text-xs font-medium text-slate-600 dark:text-slate-300">Both interested in <span class="text-primary font-bold">Web3</span> &amp; <span class="text-primary font-bold">Design Systems</span></p>
+</div>
+</div>
+</div>
+<!-- Interest Tags -->
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-700">React</span>
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-700">TypeScript</span>
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-700">FinTech</span>
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-700">+3</span>
+</div>
+<!-- Actions -->
+<div class="mt-5 grid grid-cols-2 gap-3">
+<button class="col-span-1 py-2.5 px-4 rounded-lg border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-[18px]">chat_bubble_outline</span>
+                                Message
+                            </button>
+<button class="col-span-1 py-2.5 px-4 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-icons text-[18px]">person_add</span>
+                                Connect
+                            </button>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group bg-white dark:bg-[#15202b] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md dark:hover:border-slate-700 transition-all duration-300 overflow-hidden relative">
+<!-- Match Badge -->
+<div class="absolute top-0 right-0 bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 px-3 py-1 rounded-bl-xl border-l border-b border-purple-500/10 backdrop-blur-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-icons text-[14px]">school</span>
+<span class="text-[10px] font-bold uppercase tracking-wide">Alumni</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex items-start gap-4">
+<div class="relative flex-none">
+<div class="w-16 h-16 rounded-xl overflow-hidden ring-2 ring-slate-100 dark:ring-slate-700">
+<img alt="Portrait of a smiling woman" class="w-full h-full object-cover" data-alt="Close up portrait of a professional woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiZMdeClCoeB05ui85QuEkw9VlQ_F4zmDKEfojtrZY2QlDkCEB4YWwbmzkuv7zhr2Q_kxWGOfJGnUEfn7jCqXefPmFOq85CBItNolzEf1YvzZ4-MdUl22bqGPq2of_Hv03ORfY1v1WSyv1m-FikgwftYfXy4ATIv8V2TXOFMFYK7-cu3HtSCOQKEU8UrJBxDL8-RZncAWqAQZlakUo6kZI3NoRgtaXHDmQJztPwqXT0ETj7S8Sh9WqRb6aofQyAr6X6JuJUeJtgdE"/>
+</div>
+</div>
+<div class="flex-1 min-w-0 pt-1">
+<h3 class="text-lg font-bold truncate leading-tight">Sarah Miller</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">Product Designer at <span class="font-semibold text-slate-700 dark:text-slate-300">Airbnb</span></p>
+<!-- Why this match? -->
+<div class="mt-3 inline-flex items-center gap-2 bg-slate-50 dark:bg-slate-800/60 px-2.5 py-1.5 rounded-lg border border-slate-100 dark:border-slate-700/50 w-full">
+<span class="material-icons text-primary text-[16px]">domain</span>
+<p class="text-xs font-medium text-slate-600 dark:text-slate-300">Also attended <span class="text-primary font-bold">Config 2023</span></p>
+</div>
+</div>
+</div>
+<!-- Interest Tags -->
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-700">UX/UI</span>
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-700">Figma</span>
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-700">Prototyping</span>
+</div>
+<!-- Actions -->
+<div class="mt-5 grid grid-cols-2 gap-3">
+<button class="col-span-1 py-2.5 px-4 rounded-lg border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-[18px]">chat_bubble_outline</span>
+                                Message
+                            </button>
+<button class="col-span-1 py-2.5 px-4 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-icons text-[18px]">person_add</span>
+                                Connect
+                            </button>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="group bg-white dark:bg-[#15202b] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md dark:hover:border-slate-700 transition-all duration-300 overflow-hidden relative">
+<!-- Match Badge -->
+<div class="absolute top-0 right-0 bg-primary/10 dark:bg-primary/20 text-primary px-3 py-1 rounded-bl-xl border-l border-b border-primary/10 backdrop-blur-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-icons text-[14px]">bolt</span>
+<span class="text-[10px] font-bold uppercase tracking-wide">92% Match</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex items-start gap-4">
+<div class="relative flex-none">
+<div class="w-16 h-16 rounded-xl overflow-hidden ring-2 ring-slate-100 dark:ring-slate-700">
+<img alt="Portrait of a smiling man in a suit" class="w-full h-full object-cover" data-alt="Close up portrait of a corporate man smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtOA5NmPASH1zP05QNMExtLZDQGEZiMFZNvN36mT8Zbg8J0PRhbmhNMQ0VOGe0zPyXbDPZNlnJ7J1VRKgHbKCsOi-Ip75WACwILWgWIKpJphifF6MIkQsFBFCr5ehQa6dQjB5TOMqhwU_fMjPL2Lq4DMWc8kVHbICE9Tnh9Iy50RhPjgBWvQF2J0dIMICeeAZLweuKXrdxW3Svd59Kz4m4EkPNZtcUY7gRCH4OIT-GkuTeKNFQmPTbHCCylBnDM6Ht66TbNk_4qRo"/>
+</div>
+</div>
+<div class="flex-1 min-w-0 pt-1">
+<h3 class="text-lg font-bold truncate leading-tight">Marcus Johnson</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">CTO at <span class="font-semibold text-slate-700 dark:text-slate-300">NovaStartups</span></p>
+<!-- Why this match? -->
+<div class="mt-3 inline-flex items-center gap-2 bg-slate-50 dark:bg-slate-800/60 px-2.5 py-1.5 rounded-lg border border-slate-100 dark:border-slate-700/50 w-full">
+<span class="material-icons text-primary text-[16px]">lightbulb</span>
+<p class="text-xs font-medium text-slate-600 dark:text-slate-300">Looking for <span class="text-primary font-bold">Tech Leads</span> like you</p>
+</div>
+</div>
+</div>
+<!-- Interest Tags -->
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-700">Startups</span>
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-700">AI</span>
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium border border-slate-200 dark:border-slate-700">Leadership</span>
+</div>
+<!-- Actions -->
+<div class="mt-5 grid grid-cols-2 gap-3">
+<button class="col-span-1 py-2.5 px-4 rounded-lg border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-[18px]">chat_bubble_outline</span>
+                               Message
+                           </button>
+<button class="col-span-1 py-2.5 px-4 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-icons text-[18px]">person_add</span>
+                               Connect
+                           </button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Nearby Activity (Bonus Section for fullness) -->
+<section class="pb-6">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-lg font-bold">Live Activity</h2>
+</div>
+<div class="bg-white dark:bg-[#15202b] rounded-xl border border-slate-200 dark:border-slate-800 p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2">
+<img alt="Attendee 1" class="w-8 h-8 rounded-full border-2 border-white dark:border-[#15202b]" data-alt="Small avatar of attendee 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8o9Wlydpb2E97jbzp-NO5oWAgu5i-CNkwAkV7cH8ZmLFK68Jgf7-q0AIGU7yiS6c639NbrP8y7WeRRw2vVQRbcN4mGYXTF489xbmsr03G_MRbn5sbo6RnR_hybL2yy-039tDaHLk9gujAMue9GRa7DgYSdxCTUFZ6tWiSZIqFcH_ugZpg-DV8LxKMc6FPtEjTjX8X78bYJo9C0nebmbvUewpSzbzIL79szIyKHUbDdPkKptJzlvdsFJ4E6yV0p97U2NSHHTED2Ec"/>
+<img alt="Attendee 2" class="w-8 h-8 rounded-full border-2 border-white dark:border-[#15202b]" data-alt="Small avatar of attendee 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6PVXGQIx3fZUVIaDMBXBIu89RNkHu9vlk3HR8lSg8Ya6CB4eNK4RO7WXliMexJXkk1VDk4qyMxgPtELgIpJpGSIv6-OdxzNjWccmam2Q5LhcpZqAmnuHacR7xHaRWZzIcuJBgKaHoTVjE4T7lCdpsvXjROlZeInLAR5Jinc_9GmCpYYU3se6WiR-54MC8FnrPpFGeiMCRM7ISGNkdK-Xan0T1hzFlEstPKx-m7Ncie-llzJnKG9kK64JqymbuV-HXAB1d16qFykI"/>
+<img alt="Attendee 3" class="w-8 h-8 rounded-full border-2 border-white dark:border-[#15202b]" data-alt="Small avatar of attendee 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQnftmoY194xZs0aknU15czYjPD1CY4JI6atqO5h1Fswxy6_kJj5lRf9FxQWxeiXUA8dEh8jqUGrFxeCRbfwpmG0NPIjtsgP_yGw1Sh1WUdgRYXSW7mQ4zb2bDxzRsWWzQlB9uU5gUam_lrExJtfwxefkCcGbN2qecFlDV_XJs7IyfXLuU02FmY3k8pJlCvg9NFItK9pMilGe6ugG6HVfcEUFQXeV3ELSlD2bTnoSk1LuyLMfXXmQobee9D39ICVfBBLopp_Rh9lg"/>
+</div>
+<div class="text-sm">
+<p class="font-medium text-slate-800 dark:text-white">Networking Mixer</p>
+<p class="text-xs text-slate-500">Starting in 15m @ Main Hall</p>
+</div>
+</div>
+<button class="text-primary text-sm font-semibold">Join</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 z-50 w-full bg-white dark:bg-[#15202b] border-t border-slate-200 dark:border-slate-800 pb-safe safe-area-bottom">
+<div class="flex justify-around items-center h-16 w-full max-w-md mx-auto">
+<button class="flex flex-col items-center justify-center space-y-1 text-primary">
+<span class="material-icons">dashboard</span>
+<span class="text-[10px] font-medium">Discover</span>
+</button>
+<button class="flex flex-col items-center justify-center space-y-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+<span class="material-icons">calendar_today</span>
+<span class="text-[10px] font-medium">Schedule</span>
+</button>
+<div class="relative">
+<button class="flex flex-col items-center justify-center space-y-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+<span class="material-icons">chat</span>
+<span class="text-[10px] font-medium">Chats</span>
+</button>
+<span class="absolute top-0 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white dark:border-[#15202b]"></span>
+</div>
+<button class="flex flex-col items-center justify-center space-y-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+<span class="material-icons">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+<!-- Safe Area Spacing -->
+<div class="h-24"></div>
+</body></html>

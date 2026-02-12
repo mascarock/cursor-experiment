@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Attendee Detailed Profile</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#137fec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101922",
+                },
+                fontFamily: {
+                "display": ["Manrope", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for clean look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(16, 25, 34, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex justify-center items-start pt-0 sm:pt-10 pb-0 sm:pb-10 selection:bg-primary/30 selection:text-primary">
+<!-- Mobile Container -->
+<div class="w-full max-w-md h-screen sm:h-[850px] bg-background-light dark:bg-background-dark sm:rounded-2xl sm:shadow-2xl sm:border border-slate-200 dark:border-slate-800 overflow-hidden relative flex flex-col">
+<!-- Header Navigation (Sticky + Glassmorphism) -->
+<header class="absolute top-0 left-0 right-0 z-20 px-4 pt-12 pb-4 flex justify-between items-center glass-panel border-b border-slate-200/10 dark:border-slate-700/30">
+<button class="p-2 -ml-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300">
+<span class="material-icons-round text-2xl">arrow_back</span>
+</button>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300">
+<span class="material-icons-round text-xl">bookmark_border</span>
+</button>
+<button class="p-2 -mr-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300">
+<span class="material-icons-round text-xl">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex-1 overflow-y-auto no-scrollbar relative">
+<!-- Hero Section with Background Gradient -->
+<div class="relative pt-32 pb-8 px-6 bg-gradient-to-b from-primary/10 via-background-light dark:via-background-dark to-background-light dark:to-background-dark">
+<!-- Abstract Decoration -->
+<div class="absolute top-0 left-0 w-full h-48 bg-gradient-to-br from-primary/20 to-transparent opacity-50 blur-3xl pointer-events-none"></div>
+<div class="relative flex flex-col items-center text-center z-10">
+<!-- Avatar with Active Status & Border -->
+<div class="relative mb-5 group cursor-pointer">
+<div class="p-1 rounded-full bg-gradient-to-br from-primary to-primary/40 shadow-lg shadow-primary/20">
+<img alt="Professional woman smiling in office setting" class="w-32 h-32 rounded-full object-cover border-4 border-background-light dark:border-background-dark" data-alt="Portrait of Sarah Jenkins smiling professionally" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFGm2N2fZ4pRJQIqxEjqBGbpbHLpITNBK4S0wo7bCIccINk5iVNfy598Ve-4-zR5cJq_Hw7outI7Q2sSW_pamz__hJ8FEBOFw1s1ePnsluO5VvuhTdvZesk2jcC_S6Lpsz9Y7GEB1Q3f5A9DVj901XNzLsiGadU2L5GAlETTcKKg0PchOXJZ6A6ptqWL-lfrjRQL6xG4fZL0NjgTSOZjk6Qb9wC9WgM5zLBcYBsgDsmMZR0pO2aWkLyyxA7aNsNETsypxQ89J5IOU"/>
+</div>
+<!-- Online Indicator -->
+<div class="absolute bottom-2 right-2 w-5 h-5 bg-green-500 border-4 border-background-light dark:border-background-dark rounded-full"></div>
+</div>
+<!-- Name & Role -->
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Sarah Jenkins</h1>
+<p class="text-base text-primary font-medium mb-1">Senior Product Designer</p>
+<div class="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 mb-6">
+<span class="material-icons-round text-base">business</span>
+<span>TechFlow Inc.</span>
+</div>
+<!-- Quick Actions Row -->
+<div class="flex items-center justify-center gap-4 w-full max-w-xs mx-auto mb-2">
+<a class="flex items-center gap-2 px-4 py-2 bg-[#0077b5]/10 hover:bg-[#0077b5]/20 text-[#0077b5] dark:text-[#389ce6] rounded-lg transition-all text-sm font-semibold border border-[#0077b5]/20" href="#">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                            LinkedIn
+                        </a>
+<a class="flex items-center gap-2 px-4 py-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg transition-all text-sm font-semibold border border-transparent dark:border-slate-700" href="#">
+<span class="material-icons-round text-base">link</span>
+                            Website
+                        </a>
+</div>
+</div>
+</div>
+<!-- Content Body -->
+<div class="px-6 pb-28 space-y-8">
+<!-- About Section -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">About</h2>
+<!-- AI Badge -->
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300 text-[10px] font-bold uppercase tracking-wider">
+<span class="material-icons-round text-[10px]">auto_awesome</span>
+                            AI Summary
+                        </div>
+</div>
+<div class="relative">
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
+                            Passionate about building accessible user interfaces and creating seamless design systems. Currently leading the design system team at TechFlow, focusing on scalability and developer experience. Previously worked with startups to define their visual identity.
+                        </p>
+<!-- Subtle fade for "Read More" could go here if text was longer -->
+</div>
+</section>
+<!-- Experience Section (Brief) -->
+<section>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Experience</h2>
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xl font-bold text-primary">T</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-slate-100">Senior Product Designer</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">TechFlow • 2021 - Present</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xl font-bold text-slate-500">C</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-slate-100">UI/UX Designer</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Creative Solutions • 2018 - 2021</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Skills</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-semibold">User Research</span>
+<span class="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-semibold">Figma</span>
+<span class="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-semibold">Design Systems</span>
+<span class="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-semibold">Prototyping</span>
+<span class="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-semibold">Accessibility</span>
+</div>
+</section>
+<!-- Interests Section -->
+<section>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Interests</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium">Public Speaking</span>
+<span class="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium">FinTech</span>
+<span class="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium">Coffee</span>
+<span class="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium">Travel</span>
+</div>
+</section>
+<!-- Shared Groups/Events Context (Optional for Networking apps) -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Mutual Connections</h2>
+<span class="text-xs text-primary font-semibold cursor-pointer">View All</span>
+</div>
+<div class="flex -space-x-3 overflow-hidden p-1">
+<img alt="Male connection profile" class="inline-block h-8 w-8 rounded-full ring-2 ring-background-light dark:ring-background-dark object-cover" data-alt="Portrait of a male connection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA90CZrEC7k8ZKu6KnJVtgotUsDu2n-ccreCms3Twz0EHqVnyTqb53lUtpcNUT5Q8ndskFy4ucwRWXHjZ-N9iUFtzCd0XS1S4dq0L_3CmzIP-52YhcMO_GkozFUX-ETJB11dxLM0Qye0VB95bo7waY9DZ8N_j5ys6h4NmDX5KLtN3yFT9dRKatNcEnlu9TEwSzaskhuW-u1V669MPrTNtbMIQ0kXDfssBRItIsN920HWc17JYSJTZQlAC6s_yyCV8Xa6-ZM5DD4fyE"/>
+<img alt="Female connection profile" class="inline-block h-8 w-8 rounded-full ring-2 ring-background-light dark:ring-background-dark object-cover" data-alt="Portrait of a female connection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx9iQ_a-lzIdDU2MVV_oDMD7QWQX5rbEWBPyZFfuxRE4f1mQ_lqmr1dLzbc67JYr2XcuCGT5U7rTk6Kgmmcxnep1GsVJQUAeLQ4-uKBs7B_PGVy8M-Rx3Y5mw2alipbxQylAhplE-TqkYK7s7p37JUnEQcwEQMXD0yhIw9R9GtwHpMkPG_W_RjOXpzG_icUPJLGTJCwtPlGJA0WkIAE5HeDjZzysjqXxNKcio-CEiSKt7HOCCQq06t6LRXPKckMWm_JyYX5rWjPXc"/>
+<img alt="Male connection profile" class="inline-block h-8 w-8 rounded-full ring-2 ring-background-light dark:ring-background-dark object-cover" data-alt="Portrait of a male connection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl7u_YM40GBYgmY7fY0KG3ervGW0Tilcpsb-Ov7EZtCZGLdzsOkw96-Lkxg3IheyOK-BaAHtlEpzjJl5Ew4vMP8Gi6HkuJmxCLFfG-SiZr-2eaT0e4naU_F6i1T2InwCLlFniS52sasDEZN8GSb7brrbhPZi5PEdiMaJJSQHRBo0r4DNd77BQUHLsUU0CPMFPaekztt6ExoFlYOACmGTmiPd12PqZ2TTF4toaZGqbdrEsECK66uzojxVjYRJkd6ZTw2I_Ebl6brTI"/>
+<div class="flex items-center justify-center h-8 w-8 rounded-full ring-2 ring-background-light dark:ring-background-dark bg-slate-200 dark:bg-slate-800 text-xs font-bold text-slate-500 dark:text-slate-400">
+                             +4
+                         </div>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-2">You both attended <span class="text-slate-700 dark:text-slate-300 font-medium">React Summit 2023</span>.</p>
+</section>
+</div>
+</main>
+<!-- Sticky Footer CTA -->
+<footer class="absolute bottom-0 left-0 right-0 p-4 pb-8 sm:pb-4 glass-panel border-t border-slate-200/10 dark:border-slate-700/30 z-30">
+<div class="flex gap-3 items-center">
+<button class="flex-1 bg-primary hover:bg-blue-600 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-primary/25 transition-transform active:scale-[0.98] flex items-center justify-center gap-2">
+<span class="material-icons-round text-xl">chat_bubble_outline</span>
+                    Send Message
+                </button>
+<button class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-white p-3.5 rounded-xl transition-colors active:scale-95 border border-transparent dark:border-slate-700">
+<span class="material-icons-round text-xl">person_add</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>
